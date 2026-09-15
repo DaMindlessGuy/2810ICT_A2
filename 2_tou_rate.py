@@ -39,6 +39,9 @@ import pandas as pd #importing pandas library
 id = pd.read_csv('./sample_usage_data_month.csv')
 
 # Map out the dataframe to desired format
+
+id['timestamp'] = pd.to_datetime(id['timestamp']) # converting the timestamp column into datetime format for further processing
+
 id.set_index('timestamp', inplace=True) # setting dataframe index
 
 peak_id = id.between_time('18:00', '22:00') # applying filter to get the peak usage
@@ -82,3 +85,5 @@ fx = float(input("What is the fixed fee for this tariff model? (in $): "))
 tb = (pr * peak_sum) + (opr * off_sum) + (sr * shoulder_sum) + fx # total bill for the month
 
 print("Total bill for this month is: $", round(tb, 2))
+
+# Sanity check measures may be added to verify the calculation, consultation required

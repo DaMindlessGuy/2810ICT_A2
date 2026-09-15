@@ -9,6 +9,10 @@ Separate testing will be conducte on other file.
 
 '''
 
+"""
+
+--Draft version
+
 # Single fixed price per unit of electricity (kW/h) tariff model
 
 fp = 0.25 # fixed price of electricity per month
@@ -22,3 +26,25 @@ tc = 300 # total consumption in kW/h per month, temporary value for testing
 tb = (tc * fp) + fx # total bill for the month
 
 print("Total bill for this month is: $", tb)
+
+"""
+import pandas as pd #importing pandas library
+
+id = pd.read_csv('./sample_usage_data_month.csv')
+
+id['kWh'] = id['kWh'].astype(float)
+
+tc = id['kWh'].sum()
+
+print(tc) #Sanity check, will be deleted on production
+
+#User can add values, may differnt in testing with pytest; can be removed on production, where values will be hardcoded.
+fp = float(input("What is the fixed price of electricity per month? (in $/kWh): ")) 
+
+fx = float(input("What is the fixed fee for this tariff model? (in $): "))
+
+# calculation model
+
+tb = (tc * fp) + fx # total bill for the month
+
+print("Total bill for this month is: $", round(tb), 2)

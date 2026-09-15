@@ -13,3 +13,12 @@ Pandas testing
 requirements.txt: for environment requirement
 
 Sample usage dataset (CSV format)
+
+## Usage 
+
+### Linux/MacOS
+
+1. `python -m venv .venv`
+2. `source .venv/bin/activate`
+3. `pip install -r requirements.txt`
+4. `./main.py`

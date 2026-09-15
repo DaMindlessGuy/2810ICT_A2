@@ -1,0 +1,1 @@
+This repo belongs to Duwon Kong and it's group for purpose of 2810ICT Assignment 2, Griffith University.

@@ -6,7 +6,7 @@ Flat rate calculation model (Complete, sanity check may required)
 
 Time-Of-Usage (TOU) rate calculation model (Complete, sanity check may required)
 
-Tiered rate calculation model (In process)
+Tiered rate calculation model (Complete, sanity check may required)
 
 Pandas testing
 

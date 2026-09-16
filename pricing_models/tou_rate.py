@@ -37,11 +37,11 @@ def calculate_tou_rate(csv_path: str, fixed_fee: float) -> float:
 
     id.set_index('timestamp', inplace=True) # setting dataframe index
 
-    peak_id = id.between_time('18:00', '22:00') # applying filter to get the peak usage
+    peak_id = id.between_time('18:00:00', '21:59:59') # applying filter to get the peak usage
 
-    off_id = id.between_time('22:00', '07:00') # applying filter to get the off peak usage
+    off_id = id.between_time('22:00:00', '06:59:59') # applying filter to get the off peak usage
 
-    shoulder_id = id.between_time('07:00', '18:00') # applying filter to get the shoulder usage
+    shoulder_id = id.between_time('07:00:00', '17:59:59') # applying filter to get the shoulder usage
 
     # the current filter is overlapping one hour on the boundary, may require further consultation or adding assumption
 

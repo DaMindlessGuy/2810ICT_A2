@@ -11,21 +11,9 @@ id['timestamp'] = pd.to_datetime(id['timestamp']) # converting the timestamp col
 
 db = id.groupby(id['timestamp'].dt.date) # grouping the data by date, automatic grouping of 24 rows on the day
 
-
 id.set_index('timestamp', inplace=True) # setting dataframe index
 
-peak_id = id.between_time('18:00', '22:00') # applying filter to get the peak usage
 
-peak_group = peak_id.groupby(peak_id.index.date) # grouping the peak usage by date
-
-peak_sum = peak_id['kWh'].sum() # summing the kWh values for the peak usage
-
-print(f"Total peak consumption for the month is: {round(peak_sum, 2)} kWh") # printing the total peak consumption for the month
-
-for day, group in peak_group:
-    print(f"Date: {day}")
-    print(group)
-# sanity check, printing all days with selected peak usage time, will be removed on production
 
 """
 Random testing codes
@@ -46,5 +34,18 @@ print(ss) # current outcome is 850.67, where it has been verified with given CSV
 
 print(f"Total consumption for the month is: {ss} kWh") # printing the total consumption for the month
 #------
+
+peak_id = id.between_time('18:00', '22:00') # applying filter to get the peak usage
+
+peak_group = peak_id.groupby(peak_id.index.date) # grouping the peak usage by date
+
+peak_sum = peak_id['kWh'].sum() # summing the kWh values for the peak usage
+
+print(f"Total peak consumption for the month is: {round(peak_sum, 2)} kWh") # printing the total peak consumption for the month
+
+for day, group in peak_group:
+    print(f"Date: {day}")
+    print(group)
+# sanity check, printing all days with selected peak usage time, will be removed on production
 
 """

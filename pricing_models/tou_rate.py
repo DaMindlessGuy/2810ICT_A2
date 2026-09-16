@@ -27,7 +27,7 @@ print("Total bill for this month is: $", round(tb, 2))
 
 import pandas as pd
 
-def calculate_tou_rate(csv_path: string, fixed_fee: float) -> float:
+def calculate_tou_rate(csv_path: str, fixed_fee: float) -> float:
     # Grab dataset
     id = pd.read_csv(csv_path)
 

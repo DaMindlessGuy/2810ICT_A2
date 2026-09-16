@@ -1,6 +1,6 @@
 import pandas as pd 
 
-def calculate_flat_rate(csv_path: string, hourly_price: float, fixed_fee: float) -> float : 
+def calculate_flat_rate(csv_path: str, hourly_price: float, fixed_fee: float) -> float : 
     """
     Users will define a csv_path, fixed_prive and fixed_fee and this will read the 
     given CSV with pandas and will multiply the usage per hour with the price per 

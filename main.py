@@ -9,9 +9,9 @@ CSV_PATH = "./sample_usage_data_month.csv"
 if __name__ == "__main__":
 
     fixed_fee = 10.0
-    flat_rate_price = calculate_flat_rate(CSV_PATH, 0.25, fixed_fee)
-    tou_rate_price = calculate_tou_rate(CSV_PATH, fixed_fee)
-    tier_rate_price = calculate_tier_rate(CSV_PATH, 0.20, 0.30, 0.40, fixed_fee)
+    flat_rate_price = calculate_flat_rate(CSV_PATH, 1.0, 0.0)
+    tou_rate_price = calculate_tou_rate(CSV_PATH, 0.0)
+    tier_rate_price = calculate_tier_rate(CSV_PATH, 0.20, 0.30, 0.40, 0.0)
 
 
     print(f"Flat rate price is {round(flat_rate_price, 2)}")

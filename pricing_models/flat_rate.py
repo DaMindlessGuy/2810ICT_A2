@@ -13,6 +13,8 @@ def calculate_flat_rate(csv_path: str, fixed_price: float, fixed_fee: float) -> 
         raise ValueError("Fixed Fee must be same or higher than $0.00.")
     if not isinstance(csv_path, str):
         raise TypeError("CSV path must be provided or value must be a string.")
+    if not isinstance(fixed_price, float) or not isinstance(fixed_fee, float):
+        raise TypeError("Fixed Fee or rate must be provided or value must be a float.")
     
     id = pd.read_csv(csv_path)
 
@@ -20,4 +22,7 @@ def calculate_flat_rate(csv_path: str, fixed_price: float, fixed_fee: float) -> 
 
     total_consumption = id['kWh'].sum()
 
-    return (total_consumption * fixed_price) + fixed_fee
+    if total_consumption < 0:
+        raise ValueError("Total usage must be same or higher than 0.00kWh.")
+
+    return round((total_consumption * fixed_price) + fixed_fee, 2)
